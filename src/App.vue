@@ -4,17 +4,24 @@ import { ref } from 'vue'
 const message = ref('Task App')
 const newTask = ref('')
 
+function formSubmitted() {
+  console.log(newTask.value)
+
+}
+
 </script>
 
 <template>
   <main>
     <h1>{{ message }}</h1>
-    <form>
+    <form @submit.prevent="formSubmitted">
       <label>
         New Task
         <input v-model="newTask" type="text" name="newTask">
       </label>
-      <h3>{{ newTask }}</h3>
+      <div class="button-container">
+        <button>Add</button>
+      </div>
     </form>
   </main>
 </template>
@@ -23,5 +30,10 @@ const newTask = ref('')
 main {
   max-width: 800px;
   margin: 1rem auto;
+}
+
+.button-container {
+  display: flex;
+  justify-content: end;
 }
 </style>

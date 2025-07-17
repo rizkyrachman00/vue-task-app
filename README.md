@@ -36,4 +36,6 @@ Pada Vue disebut istilah SFC (single file component), semua dalam satu komponen 
 
 v-model -->  data pada variabel newTask akan terhubung langsung (two-way) ke input teks ini
 
+@submit.prevent --> action submit pada tag form dan prevent default ketika submit (tidak reload ulang)
+
 
