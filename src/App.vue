@@ -4,11 +4,11 @@ import TaskForm from './components/TaskForm.vue'
 import type { Task } from './types';
 
 const message = ref('Task App')
-const task = ref<Task[]>([])
+const tasks = ref<Task[]>([])
 
 function addTask(newTask: string) {
-  task.value.push({
-    id:crypto.randomUUID(),
+  tasks.value.push({
+    id: crypto.randomUUID(),
     title: newTask,
     done: false
   })
@@ -20,7 +20,10 @@ function addTask(newTask: string) {
   <main>
     <h1>{{ message }}</h1>
     <TaskForm @add-task="addTask" />
-    <h3>There are {{ task.length }} task.</h3>
+    <h3>There are {{ tasks.length }} task.</h3>
+    <article v-for="task in tasks">
+      {{ task.title }}
+    </article>
   </main>
 </template>
 
