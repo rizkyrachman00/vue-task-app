@@ -1,12 +1,11 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
+import TaskForm from './components/TaskForm.vue'
 
 const message = ref('Task App')
-const newTask = ref('')
 
-function formSubmitted() {
-  console.log(newTask.value)
-
+function addTask(newTask: string) {
+  console.log(newTask);
 }
 
 </script>
@@ -14,19 +13,11 @@ function formSubmitted() {
 <template>
   <main>
     <h1>{{ message }}</h1>
-    <form @submit.prevent="formSubmitted">
-      <label>
-        New Task
-        <input v-model="newTask" type="text" name="newTask">
-      </label>
-      <div class="button-container">
-        <button>Add</button>
-      </div>
-    </form>
+    <TaskForm @add-task="addTask" />
   </main>
 </template>
 
-<style scoped>
+<style>
 main {
   max-width: 800px;
   margin: 1rem auto;

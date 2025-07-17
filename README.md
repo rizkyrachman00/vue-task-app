@@ -38,4 +38,12 @@ v-model -->  data pada variabel newTask akan terhubung langsung (two-way) ke inp
 
 @submit.prevent --> action submit pada tag form dan prevent default ketika submit (tidak reload ulang)
 
+const emit = defineEmits<{
+  addTask: [newTask: string]
+}>()
 
+function formSubmitted() {
+  emit('addTask', newTask.value)
+}
+
+emit --> digunakan untuk mengirim data ke parent komponen, agar parent melisten data
