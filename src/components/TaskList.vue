@@ -10,7 +10,10 @@ const props = defineProps<{
 <template>
   <div class="task-list">
     <article v-for="task in props.tasks" :key="task.id">
-      {{ task.title }}
+      <label for="">
+        <input v-model="task.done" type="checkbox">
+        {{ task.title }}
+      </label>
     </article>
   </div>
 
