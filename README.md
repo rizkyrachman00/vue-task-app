@@ -32,3 +32,8 @@ scoped --> styling hanya berlaku untuk komponen ini saja
 
 Pada Vue disebut istilah SFC (single file component), semua dalam satu komponen script, template, style
 
+<input v-model="newTask" type="text" name="newTask">
+
+v-model -->  data pada variabel newTask akan terhubung langsung (two-way) ke input teks ini
+
+
