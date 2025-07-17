@@ -21,7 +21,8 @@ function addTask(newTask: string) {
   <main>
     <h1>{{ message }}</h1>
     <TaskForm @add-task="addTask" />
-    <h3>There are {{ tasks.length }} task.</h3>
+    <h3 v-if="!tasks.length">Add a task to get started</h3>
+    <h3 v-else="tasks.length">0 / {{ tasks.length }} task completed.</h3>
     <TaskList :tasks />
   </main>
 </template>
