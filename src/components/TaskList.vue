@@ -7,19 +7,21 @@ const props = defineProps<{
 
 const emits = defineEmits<{
   toggleDone: [id: string]
+  removeTask: [id: string]
 }>()
 
 </script>
 
 <template>
   <div class="task-list">
-    <article v-for="task in props.tasks" :key="task.id">
+    <article v-for="task in props.tasks" :key="task.id" class="task">
       <label for="">
         <input @input="emits('toggleDone', task.id)" :checked="task.done" type="checkbox">
         <span :class="{ done: task.done }">
           {{ task.title }}
         </span>
       </label>
+      <button @click="emits('removeTask', task.id)" class="outline">Remove</button>
     </article>
   </div>
 
@@ -28,6 +30,12 @@ const emits = defineEmits<{
 <style>
 .task-list {
   margin-top: 1rem;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .done {
